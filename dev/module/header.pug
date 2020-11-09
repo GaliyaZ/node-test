@@ -1,0 +1,22 @@
+mixin navLink(link, name, active)
+    //-li
+      a(href=link).navigation__link=name
+    li
+      if (active)
+        a(href=link).navigation__link.navigation__link--active=name
+      else
+        a(href=link).navigation__link=name
+
+header.header
+  ul.navigation
+    //-
+      li
+        a(href='#').navigation__link 1
+      li
+        a(href='#').navigation__link 2
+      li
+        a(href='#').navigation__link 3//
+    +navLink('#', 1)
+    +navLink('#', 2)
+    +navLink('#', '3')
+    +navLink('#', '3', true)
